@@ -1,8 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import AppWrapper from './AppWrapper';
+import { ThemeProvider } from 'react-jss';
 import * as serviceWorker from './serviceWorker';
+
+
+const theme = {
+  primaryColor: 'green'
+}
+const App: React.SFC = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <AppWrapper />
+    </ThemeProvider>
+  );
+}
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
