@@ -1,6 +1,7 @@
 import React from 'react';
 import { createStyles } from './shared/theme/util';
 import injectSheet,{ WithSheet, ThemeProvider } from 'react-jss';
+import Hexagon from './components/hexagon';
 
 const styles = () =>  createStyles({
   root: {
@@ -34,6 +35,7 @@ const AppWrapper: React.SFC<WithSheet<typeof styles>> = ({ classes }) => {
       <div className={classes.root}>
         <div className={classes.wrapper}>
           <div className={classes.content}>
+            <Hexagon />
           </div>
         </div>
       </div>
