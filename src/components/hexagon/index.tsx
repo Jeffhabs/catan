@@ -1,69 +1,53 @@
 import React from 'react';
 import { createStyles } from '../../shared/theme/util';
+import cn from 'classnames';
 import injectSheet, { WithSheet } from 'react-jss'
 
-// width: 0;
-// border-bottom: 30px solid #6C6;
-// border-left: 52px solid transparent;
-// border-right: 52px solid transparent;
-
-// width: 104px;
-// height: 60px;
-// background-color: #6C6;
-
-// width: 0;
-// border-top: 30px solid #6C6;
-// border-left: 52px solid transparent;
-// border-right: 52px solid transparent;
-
 const styles = () => createStyles({
-  hex: {
-    float: 'left',
-    marginLeft: '3px',
-    marginBottom: '-26px',
+  hexagon: {
+    overflow: 'hidden',
+    visibility: 'hidden',
+    WebkitTransform: 'rotate(120deg)',
+    MozTransform: 'rotate(120deg)',
+    MsTransform: 'rotate(120deg)',
+    OTransform: 'rotate(120deg)',
+    transform: 'rotate(120deg)',
   },
-  top: {
-    width: 0,
-    borderBottom: '30px solid #6C6',
-    borderLeft: '52px solid transparent',
-    borderRight: '52px solid transparent',
+  hexagonIn1: {
+    overflow: 'hidden',
+    width: '100%',
+    height: '100%',
+    WebkitTransform: 'rotate(-60deg)',
+    MozTransform: 'rotate(-60deg)',
+    MsTransform: 'rotate(-60deg)',
+    OTransform: 'rotate(-60deg)',
+    transform: 'rotate(-60deg)',
   },
-  middle: {
-    width: '104px',
-    height: '60px',
-    background: '#6C6',
+  hexagonIn2: {
+    width: '100%',
+    height: '100%',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: '50%',
+    backgroundImage: 'url(http://placekitten.com/240/240)',
+    visibility: 'visible',
+    WebkitTransform: 'rotate(-60deg)',
+    MozTransform: 'rotate(-60deg)',
+    MsTransform: 'rotate(-60deg)',
+    OTransform: 'rotate(-60deg)',
+    transform: 'rotate(-60deg)',
   },
-  bottom: {
-    width: '0',
-    borderTop: '30px solid #6C6',
-    borderLeft: '52px solid transparent',
-    borderRight: '52px solid transparent',
-  },
-  hexRow: {
-      clear: 'left',
-  },
-  hexRowEven: {
-    marginLeft: '53px',
+  hexagon1: {
+    width: 400,
+    height: 200,
+    margin: '0 0 0 -80px',
   }
 })
 
 const Hexagon: React.SFC<WithSheet<typeof styles>> = ({classes}) => {
   return (
-    <div className={classes.hexRow}>
-      <div className={classes.hex}>
-        <div className={classes.top} />
-        <div className={classes.middle} />
-        <div className={classes.bottom} />
-      </div>
-      <div className={classes.hex}>
-        <div className={classes.top} />
-        <div className={classes.middle} />
-        <div className={classes.bottom} />
-      </div>
-      <div className={classes.hex}>
-        <div className={classes.top} />
-        <div className={classes.middle} />
-        <div className={classes.bottom} />
+    <div className={cn(classes.hexagon, classes.hexagon1)}>
+      <div className={classes.hexagonIn1}>
+        <div className={classes.hexagonIn2} />
       </div>
     </div>
   );
